@@ -1,4 +1,4 @@
-# Ynov-bross-2077
+# Ynov-bros-2077
 
 ## Projet dev logiciel 2021
 
