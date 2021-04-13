@@ -15,4 +15,4 @@ Ont mettra aussi en place des éléments tel que l'impossibilité de mettre l'ap
 
 ### Suivez l'avancement du projet 
 
-> Venez donc découvrir par séance [notre travail](./livrable/readme.md)
+> Venez donc découvrir par séance [notre travail](./livrable/README.md)
