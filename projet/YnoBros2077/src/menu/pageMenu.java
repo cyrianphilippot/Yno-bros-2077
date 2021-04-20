@@ -13,6 +13,8 @@ import com.sun.java.swing.plaf.windows.resources.windows;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.awt.event.ActionEvent;
 
 public class pageMenu {
@@ -42,7 +44,7 @@ public class pageMenu {
 	public pageMenu() {
 		initialize();
 	}
-
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -63,11 +65,17 @@ public class pageMenu {
 		JButton btnNewButton = new JButton("Valider");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String userName = textField.getText();
-				
+				String userName = textField.getText();	
+				mapChoice openW = new mapChoice();
+				openW.launchMapChoice();
 			}
 		});
 		btnNewButton.setBounds(174, 123, 86, 23);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+			}
+		});
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Quitter");
