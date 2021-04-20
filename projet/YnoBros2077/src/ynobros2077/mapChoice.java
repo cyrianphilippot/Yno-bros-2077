@@ -1,6 +1,8 @@
-package menu;
+package ynobros2077;
+import ynobros2077.game.level1.com.yno.jeu.*;
 
-import menu.pageMenu;
+import ynobros2077.pageMenu;
+import ynobros2077.game.level1.com.yno.jeu.Main;
 
 import java.awt.EventQueue;
 
@@ -14,7 +16,7 @@ import java.awt.event.ActionEvent;
 
 public class mapChoice {
 
-	private JFrame frame;
+	public JFrame frame;
 	private String userName;
 
 	/**
@@ -69,6 +71,7 @@ public class mapChoice {
 		JButton btnNewButton_1 = new JButton("1");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				Main.launchLevel1();
 			}
 		});
 		btnNewButton_1.setBounds(10, 60, 89, 23);
