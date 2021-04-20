@@ -45,6 +45,7 @@ public class pageMenu {
 		initialize();
 	}
 	
+	
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -66,8 +67,7 @@ public class pageMenu {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				String userName = textField.getText();	
-				mapChoice openW = new mapChoice();
-				openW.launchMapChoice();
+				mapChoice.launchMapChoice(userName);
 			}
 		});
 		btnNewButton.setBounds(174, 123, 86, 23);

@@ -15,15 +15,16 @@ import java.awt.event.ActionEvent;
 public class mapChoice {
 
 	private JFrame frame;
+	private String userName;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void launchMapChoice() {
+	public static void launchMapChoice(String _userName) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					mapChoice window = new mapChoice();
+					mapChoice window = new mapChoice(_userName);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -35,7 +36,8 @@ public class mapChoice {
 	/**
 	 * Create the application.
 	 */
-	public mapChoice() {
+	public mapChoice(String _userName) {
+		userName = _userName;
 		initialize();
 	}
 
@@ -51,7 +53,7 @@ public class mapChoice {
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Bienvenue ");
+		JLabel lblNewLabel = new JLabel("Bienvenue " + userName + " !");
 		lblNewLabel.setBounds(0, 11, 150, 14);
 		panel.add(lblNewLabel);
 		
@@ -63,5 +65,17 @@ public class mapChoice {
 		});
 		btnNewButton.setBounds(345, 238, 89, 23);
 		panel.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("1");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnNewButton_1.setBounds(10, 60, 89, 23);
+		panel.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_1 = new JLabel("Choose a level");
+		lblNewLabel_1.setBounds(178, 11, 150, 14);
+		panel.add(lblNewLabel_1);
 	}
 }
