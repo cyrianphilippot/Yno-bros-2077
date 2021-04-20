@@ -17,7 +17,7 @@ import java.awt.event.ActionEvent;
 public class mapChoice {
 
 	public JFrame frame;
-	private String userName;
+	public static String userName;
 
 	/**
 	 * Launch the application.

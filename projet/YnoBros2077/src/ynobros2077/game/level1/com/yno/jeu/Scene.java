@@ -1,4 +1,5 @@
 package ynobros2077.game.level1.com.yno.jeu;
+import ynobros2077.mapChoice;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -61,6 +62,7 @@ public class Scene extends JPanel {
 		this.deplacementFond();
 		
 		g2.drawImage(this.imgFond1, this.xFond1, 0, null); // Dessin de l'image de fond  		 	    
- 		g2.drawImage(imgMario, 300, 245, null); 
+ 		g2.drawImage(imgMario, 300, 245, null);
+ 		g.drawString(mapChoice.userName, 300, 240);
 	}
 }
