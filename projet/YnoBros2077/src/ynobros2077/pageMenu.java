@@ -1,4 +1,6 @@
 package ynobros2077;
+import server.clientConnexion;
+
 
 import java.awt.EventQueue;
 
@@ -9,6 +11,8 @@ import javax.swing.JTextField;
 
 import com.sun.java.swing.plaf.windows.WindowsOptionPaneUI;
 import com.sun.java.swing.plaf.windows.resources.windows;
+
+import server.clientConnexion;
 
 import javax.swing.JButton;
 import javax.swing.JTextArea;
@@ -25,7 +29,7 @@ public class pageMenu {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void launchPageMenu(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -68,6 +72,7 @@ public class pageMenu {
 			public void actionPerformed(ActionEvent arg0) {
 				String userName = textField.getText();	
 				mapChoice.launchMapChoice(userName);
+				clientConnexion.main(null);
 			}
 		});
 		btnNewButton.setBounds(174, 123, 86, 23);
