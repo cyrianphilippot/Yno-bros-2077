@@ -11,3 +11,8 @@ Jours 2 :
 - Commencement du menu , graphique et code 
 - Réalisation de la base et fênetre
 - Renseignement sur le monitoring
+
+Jours 3 : 
+- Finalisaion menu
+- Finalisation background jeu et commencement ajoute objets gênant ;)
+- Commencement LAN
