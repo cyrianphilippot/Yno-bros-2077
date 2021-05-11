@@ -16,3 +16,7 @@ Jours 3 :
 - Finalisaion menu
 - Finalisation background jeu et commencement ajoute objets gênant ;)
 - Commencement LAN
+
+Jours 4 : 
+- Monitoring
+- Objets et colisions
