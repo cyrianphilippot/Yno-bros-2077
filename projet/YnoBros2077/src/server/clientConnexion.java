@@ -51,8 +51,6 @@ public class clientConnexion {
         
            // Flush data.
            os.flush();  
-	   
-
            
            os.write("QUIT");  
            os.newLine();

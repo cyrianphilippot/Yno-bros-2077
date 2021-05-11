@@ -9,6 +9,8 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JTextField;
 
+import org.omg.CORBA.INITIALIZE;
+
 import com.sun.java.swing.plaf.windows.WindowsOptionPaneUI;
 import com.sun.java.swing.plaf.windows.resources.windows;
 
@@ -82,6 +84,13 @@ public class pageMenu {
 			}
 		});
 		panel.add(btnNewButton);
+		
+		
+	}
+	public void quitButton() {
+		JPanel panel = new JPanel();
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
 		
 		JButton btnNewButton_1 = new JButton("Quitter");
 		btnNewButton_1.addActionListener(new ActionListener() {
