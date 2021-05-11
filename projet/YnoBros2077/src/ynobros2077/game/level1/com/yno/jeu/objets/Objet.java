@@ -2,12 +2,18 @@ package ynobros2077.game.level1.com.yno.jeu.objets;
 
 import ynobros2077.game.level1.com.yno.jeu.jeu.Main;
 
+import java.awt.Image;
+
+import javax.swing.ImageIcon;
+
 public class Objet {
 
 	//**** VARIABLES ****//
 	private int largeur, hauteur; //dimensions de l'objet
 	private int x, y; //position de l'objet
 	
+	protected Image imgObjet;
+	protected ImageIcon icoObjet;
 	
 	//**** CONSTRUCTEUR ****//	
 	public Objet(int x, int y, int largeur, int hauteur){
@@ -18,7 +24,6 @@ public class Objet {
 		this.hauteur = hauteur;
 	}
 	
-	
 	 //**** GETTERS ****//	
     public int getX() {return x;}
 
@@ -28,6 +33,7 @@ public class Objet {
 
 	public int getHauteur() {return hauteur;}
 	
+	public Image getImgObjet() {return imgObjet;}
 	
 	//**** SETTERS ****//	
 	public void setX(int x) {this.x = x;}
@@ -46,3 +52,4 @@ public class Objet {
 		}
 	}
 }
+

@@ -1,10 +1,11 @@
-package ynobros2077.game.level1.com.yno.jeu.peronnages;
+package ynobros2077.game.level1.com.yno.jeu.personnages;
 import ynobros2077.game.level1.com.yno.jeu.jeu.Main;
 import ynobros2077.game.level1.com.yno.jeu.objets.Objet;
 
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+
 
 public class Mario extends Personnage{
 	
@@ -41,9 +42,9 @@ public class Mario extends Personnage{
 	
 		this.compteurSaut++;
 		// Monte du saut		
-		if(this.compteurSaut <= 35){
+		if(this.compteurSaut <= 40){
 			if(this.getY() > Main.scene.getHautPlafond()){this.setY(this.getY() - 4);}
-			else{this.compteurSaut = 36;}			
+			else{this.compteurSaut = 41;}			
 			if(this.isVersDroite() == true){str = "/images/marioSautDroite.png";}
 			else{str = "/images/marioSautGauche.png";}	
 			

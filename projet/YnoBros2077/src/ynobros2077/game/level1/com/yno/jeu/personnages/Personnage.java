@@ -1,6 +1,7 @@
-package ynobros2077.game.level1.com.yno.jeu.peronnages;
+package ynobros2077.game.level1.com.yno.jeu.personnages;
 import ynobros2077.game.level1.com.yno.jeu.jeu.Main;
 import ynobros2077.game.level1.com.yno.jeu.objets.Objet;
+
 
 import java.awt.Image;
 
@@ -59,7 +60,7 @@ public class Personnage {
 		ImageIcon ico;
 		Image img;
 		
-		if(this.marche == false || Main.scene.getxPos() <= 0){
+		if(this.marche == false || Main.scene.getxPos() <= 0 || Main.scene.getxPos() > 4430){
 			if(this.versDroite == true){str = "/images/" + nom + "ArretDroite.png";}
 			else{str = "/images/" + nom + "ArretGauche.png";}
 		}else{
