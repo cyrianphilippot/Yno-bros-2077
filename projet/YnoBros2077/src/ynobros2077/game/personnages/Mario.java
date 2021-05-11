@@ -1,6 +1,6 @@
-package ynobros2077.game.level1.com.yno.jeu.personnages;
-import ynobros2077.game.level1.com.yno.jeu.jeu.Main;
-import ynobros2077.game.level1.com.yno.jeu.objets.Objet;
+package ynobros2077.game.personnages;
+import ynobros2077.game.Main;
+import ynobros2077.game.objets.Objet;
 
 import java.awt.Image;
 

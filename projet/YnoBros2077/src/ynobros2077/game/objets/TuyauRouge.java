@@ -1,4 +1,4 @@
-package ynobros2077.game.level1.com.yno.jeu.objets;
+package ynobros2077.game.objets;
 
 import java.awt.Image;
 

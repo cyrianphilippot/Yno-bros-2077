@@ -1,4 +1,4 @@
-package ynobros2077.game.level1.com.yno.jeu;
+package ynobros2077.game;
 
 public class Chrono implements Runnable{
 
@@ -10,7 +10,6 @@ public class Chrono implements Runnable{
 		while(true){ 
 			
 			Main.scene.repaint();
-			System.out.println("RAS");
 			try {
 				Thread.sleep(PAUSE);
 			}catch (InterruptedException e) {}

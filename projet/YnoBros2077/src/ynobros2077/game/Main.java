@@ -1,4 +1,4 @@
-package ynobros2077.game.level1.com.yno.jeu.jeu;
+package ynobros2077.game;
 
 import java.awt.EventQueue;
 

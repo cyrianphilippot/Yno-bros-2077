@@ -1,7 +1,7 @@
-package ynobros2077.game.level1.com.yno.jeu.jeu;
-import ynobros2077.game.level1.com.yno.jeu.objets.*;
+package ynobros2077.game;
+import ynobros2077.game.objets.*;
 
-import ynobros2077.game.level1.com.yno.jeu.personnages.Mario;
+import ynobros2077.game.personnages.Mario;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;

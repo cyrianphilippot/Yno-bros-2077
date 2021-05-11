@@ -25,7 +25,7 @@ import java.awt.event.ActionEvent;
 
 public class pageMenu {
 
-	private JFrame frame;
+	private static JFrame frame;
 	private JTextField textField;
 
 	/**
@@ -59,22 +59,22 @@ public class pageMenu {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JPanel panel = new JPanel();
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
-		
+
 		textField = new JTextField();
 		textField.setBounds(174, 80, 86, 20);
 		panel.add(textField);
 		textField.setColumns(10);
-		
+
 		JButton btnNewButton = new JButton("Valider");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				String userName = textField.getText();	
-				mapChoice.launchMapChoice(userName);
-				clientConnexion.main(null);
+				String userName = textField.getText();
+				mapChoice.launchMapChoice(userName);;
+
 			}
 		});
 		btnNewButton.setBounds(174, 123, 86, 23);
@@ -84,14 +84,7 @@ public class pageMenu {
 			}
 		});
 		panel.add(btnNewButton);
-		
-		
-	}
-	public void quitButton() {
-		JPanel panel = new JPanel();
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		panel.setLayout(null);
-		
+
 		JButton btnNewButton_1 = new JButton("Quitter");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

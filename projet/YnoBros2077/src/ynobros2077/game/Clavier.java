@@ -1,5 +1,5 @@
-package ynobros2077.game.level1.com.yno.jeu.jeu;
-import ynobros2077.game.level1.com.yno.jeu.jeu.Main;
+package ynobros2077.game;
+import ynobros2077.game.Main;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;

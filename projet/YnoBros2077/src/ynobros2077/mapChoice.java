@@ -1,8 +1,8 @@
 package ynobros2077;
-import ynobros2077.game.level1.com.yno.jeu.*;
+import ynobros2077.game.*;
 
 import ynobros2077.pageMenu;
-import ynobros2077.game.level1.com.yno.jeu.Main;
+import ynobros2077.game.Main;
 
 import java.awt.EventQueue;
 

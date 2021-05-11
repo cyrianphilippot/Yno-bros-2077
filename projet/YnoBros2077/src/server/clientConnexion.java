@@ -52,9 +52,14 @@ public class clientConnexion {
            // Flush data.
            os.flush();  
            
-           os.write("QUIT");  
+           pageMenu.launchPageMenu(args);
+       
+    	   os.write("QUIT");  
            os.newLine();
            os.flush();
+           
+           
+           
            
            
            // Read data sent from the server.
