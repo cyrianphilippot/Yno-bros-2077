@@ -1,8 +1,4 @@
-package ynobros2077.game;
-import ynobros2077.game.Main;
-
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+package ynobros2077.game.com.yno.jeu;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -13,7 +9,7 @@ public class Clavier implements KeyListener{
 	public void keyPressed(KeyEvent e) {
 		
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT){
-			// Annule le decalage déplacementFond
+			// Annule le decalage deplacementFond
 			if(Main.scene.getxPos() == -1) {
 				Main.scene.setxPos(0);
 				Main.scene.setxFond1(-50);

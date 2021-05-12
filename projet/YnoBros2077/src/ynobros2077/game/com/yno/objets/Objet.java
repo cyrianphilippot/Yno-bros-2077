@@ -1,10 +1,10 @@
-package ynobros2077.game.objets;
-
-import ynobros2077.game.Main;
+package ynobros2077.game.com.yno.objets;
 
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+
+import ynobros2077.game.com.yno.jeu.Main;
 
 public class Objet {
 
@@ -52,4 +52,3 @@ public class Objet {
 		}
 	}
 }
-

@@ -1,4 +1,4 @@
-package ynobros2077.game;
+package ynobros2077.game.com.yno.jeu;
 
 public class Chrono implements Runnable{
 

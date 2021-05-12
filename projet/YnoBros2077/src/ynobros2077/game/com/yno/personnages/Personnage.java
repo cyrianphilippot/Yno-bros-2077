@@ -1,11 +1,11 @@
-package ynobros2077.game.personnages;
-import ynobros2077.game.Main;
-import ynobros2077.game.objets.Objet;
-
+package ynobros2077.game.com.yno.personnages;
 
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+
+import ynobros2077.game.com.yno.jeu.Main;
+import ynobros2077.game.com.yno.objets.Objet;
 
 public class Personnage {
 	

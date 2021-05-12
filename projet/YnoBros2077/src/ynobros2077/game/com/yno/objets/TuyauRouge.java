@@ -1,6 +1,4 @@
-package ynobros2077.game.objets;
-
-import java.awt.Image;
+package ynobros2077.game.com.yno.objets;
 
 import javax.swing.ImageIcon;
 

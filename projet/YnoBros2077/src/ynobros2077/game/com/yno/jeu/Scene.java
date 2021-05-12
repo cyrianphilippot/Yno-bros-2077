@@ -1,7 +1,4 @@
-package ynobros2077.game;
-import ynobros2077.game.objets.*;
-
-import ynobros2077.game.personnages.Mario;
+package ynobros2077.game.com.yno.jeu;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -10,6 +7,11 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+
+import ynobros2077.game.com.yno.objets.Bloc;
+import ynobros2077.game.com.yno.objets.Objet;
+import ynobros2077.game.com.yno.objets.TuyauRouge;
+import ynobros2077.game.com.yno..personnages.Mario;
 
 @SuppressWarnings("serial")
 public class Scene extends JPanel {
