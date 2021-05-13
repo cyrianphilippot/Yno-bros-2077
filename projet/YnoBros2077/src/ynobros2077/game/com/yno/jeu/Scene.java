@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import ynobros2077.game.com.yno.objets.Bloc;
 import ynobros2077.game.com.yno.objets.Objet;
+import  ynobros2077.game.com.yno.objets.Piece;
 import ynobros2077.game.com.yno.objets.TuyauRouge;
 import ynobros2077.game.com.yno..personnages.Mario;
 
@@ -56,6 +57,17 @@ public class Scene extends JPanel {
 	public Bloc bloc10;
 	public Bloc bloc11;
 	public Bloc bloc12;
+
+	public Piece piece1;
+	public Piece piece2;
+	public Piece piece3;
+	public Piece piece4;
+	public Piece piece5;
+	public Piece piece6;
+	public Piece piece7;
+	public Piece piece8;
+	public Piece piece9;
+	public Piece piece10;
 	
 	private ImageIcon icoDrapeau;
 	private Image imgDrapeau;
@@ -63,6 +75,7 @@ public class Scene extends JPanel {
 	private Image imgChateauFin;
 	
 	private ArrayList<Objet> tabObjets; // tableau qui enregistre tous les objets du jeu
+	private ArrayList<Piece> tabPieces; // tableau qui enregistre toutes les pieces du jeu
 	
 	//**** CONSTRUCTEUR ****//	
 	public Scene(){
@@ -108,6 +121,17 @@ public class Scene extends JPanel {
 		bloc10 = new Bloc(4000, 170);
 		bloc11 = new Bloc(4200, 200);
 		bloc12 = new Bloc(4300, 210);
+
+		piece1 = new Piece(402, 145);
+		piece2 = new Piece(1202, 140);
+		piece3 = new Piece(1272, 95);
+		piece4 = new Piece(1342, 40);
+		piece5 = new Piece(1650, 145);
+		piece6 = new Piece(2650, 145);
+		piece7 = new Piece(3000, 135);
+		piece8 = new Piece(3400, 125);
+		piece9 = new Piece(4200, 145);
+		piece10 = new Piece(4600, 40);
 		
 		this.icoChateauFin = new ImageIcon(getClass().getResource("/images/chateauFin.png")); 
 		this.imgChateauFin = this.icoChateauFin.getImage(); 
@@ -139,6 +163,18 @@ public class Scene extends JPanel {
 		this.tabObjets.add(this.bloc11);
 		this.tabObjets.add(this.bloc12);
 		
+		tabPieces = new ArrayList<Piece>();			
+		this.tabPieces.add(this.piece1);
+		this.tabPieces.add(this.piece2);
+		this.tabPieces.add(this.piece3);
+		this.tabPieces.add(this.piece4);
+		this.tabPieces.add(this.piece5);
+		this.tabPieces.add(this.piece6);
+		this.tabPieces.add(this.piece7);
+		this.tabPieces.add(this.piece8);
+		this.tabPieces.add(this.piece9);
+		this.tabPieces.add(this.piece10);
+
 		this.setFocusable(true);
 		this.requestFocusInWindow();
 		this.addKeyListener(new Clavier());
@@ -188,30 +224,58 @@ public class Scene extends JPanel {
 		}
 
 
-	public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics g) { // Dessin de toutes les images visibles a l'ecran (appel toutes les 3 ms environ)
 		
 		super.paintComponent(g);
 		Graphics g2 = (Graphics2D)g;
 
+		// Detections des contacts avec des objets
 		for(int i = 0; i < this.tabObjets.size(); i++){
-		    
+		    // mario
 		    if(this.mario.proche(this.tabObjets.get(i))){this.mario.contact(this.tabObjets.get(i));}
 		}
 		
+    	// Detection des contacts de mario avec des pieces
+ 	 	for(int i = 0; i < this.tabPieces.size(); i++){
+ 	 		if(this.mario.proche(this.tabPieces.get(i))){
+ 	 			if(this.mario.contactPiece(this.tabPieces.get(i))){
+ 	 				this.tabPieces.remove(i);
+ 	 			}
+ 	 	    }
+ 	 	}
+		
+		// Deplacement de tous les objets "fixes" du jeu		
 		this.deplacementFond();
 		if(this.xPos >= 0 && this.xPos <= 4430){
 		    for(int i = 0; i < this.tabObjets.size(); i++){this.tabObjets.get(i).deplacement();}
+		    for(int i = 0; i < this.tabPieces.size(); i++){this.tabPieces.get(i).deplacement();}		    
 		}
-		
-		g2.drawImage(this.imgFond1, this.xFond1, 0, null);  	
+		// Image de fond
+		g2.drawImage(this.imgFond1, this.xFond1, 0, null);
 		g2.drawImage(this.imgFond2, this.xFond2, 0, null);
- 		g2.drawImage(imgChateau1, 10 - this.xPos, 95, null);
- 		g2.drawImage(imgDepart, 220 - this.xPos, 234, null);
- 		for(int i = 0; i < this.tabObjets.size(); i++){
+		
+		// Image du chateau du depart
+ 		g2.drawImage(this.imgChateau1, 10 - this.xPos, 95, null);
+    	// Image du panneau de depart
+ 		g2.drawImage(this.imgDepart, 220 - this.xPos, 234, null);
+
+     	// Images des objets
+ 	 	for(int i = 0; i < this.tabObjets.size(); i++){
  	 		g2.drawImage(this.tabObjets.get(i).getImgObjet(), this.tabObjets.get(i).getX(), this.tabObjets.get(i).getY(), null);
- 	 	}		
+ 	 	}	
+ 	 	 
+ 	 	// Images des pieces
+ 	 	for(int i = 0; i < this.tabPieces.size(); i++){
+ 	 		g2.drawImage(this.tabPieces.get(i).bouge(), this.tabPieces.get(i).getX(), this.tabPieces.get(i).getY(), null);
+ 	 	}
+ 	 	
+ 	    // Image du drapeau d'arrivee
  	 	g2.drawImage(imgDrapeau, 4650 - this.xPos, 115, null);
+ 	    // Image du ch�teau d'arrive
+		 e
  		g2.drawImage(imgChateauFin, 5000 - this.xPos, 145, null);
+ 	 	
+        // Image de mario
  		if(this.mario.isSaut()){g2.drawImage(this.mario.saute(), this.mario.getX(), this.mario.getY(), null);}
  		else{g2.drawImage(this.mario.marche("mario", 25), this.mario.getX(), this.mario.getY(), null);}	
 	}

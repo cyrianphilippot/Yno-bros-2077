@@ -6,6 +6,7 @@ import javax.swing.ImageIcon;
 
 import ynobros2077.game.com.yno.jeu.Main;
 import ynobros2077.game.com.yno.objets.Objet;
+import ynobros2077.game.com.yno.objets.Piece;
 
 public class Mario extends Personnage{
 	
@@ -85,5 +86,13 @@ public class Mario extends Personnage{
 		}else if(super.contactDessus(objet) == false && this.saut == false){
 			Main.scene.setHautPlafond(0);// altitude du plafond initial (ciel)
 		}     
+	}
+
+	public boolean contactPiece(Piece piece){
+		// Le contact avec une piece n'a aucune repercussion sur Mario
+		if(this.contactArriere(piece) == true || this.contactAvant(piece) == true || this.contactDessous(piece) == true || 
+		   this.contactDessus(piece) == true){
+			return true;			
+		}else{return false;}
 	}
 }
