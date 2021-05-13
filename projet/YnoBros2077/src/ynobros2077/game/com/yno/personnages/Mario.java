@@ -34,7 +34,34 @@ public class Mario extends Personnage{
 	//**** SETTERS ****//
 	public void setSaut(boolean saut) {this.saut = saut;}
 
-	//**** METHODES ****//	
+	//**** METHODES ****//
+	@Override
+	public Image marche(String nom, int frequence) {
+
+    	String str;
+    	ImageIcon ico;
+		Image img;
+			
+		if (this.marche == false || Main.scene.getxPos() <= 0 || Main.scene.getxPos() > 4430) {
+			if(this.versDroite == true){str = "src/images/" + nom + "ArretDroite.png";}
+			else{str = "src/images/" + nom + "ArretGauche.png";}				
+		}else{
+		    this.compteur++;
+		    if (this.compteur / frequence == 0) { // quotient de la division euclidienne de compteur par frequence
+		    	if(this.versDroite == true){str = "src/images/" + nom + "ArretDroite.png";}
+		    	else{str = "src/images/" + nom + "ArretGauche.png";}					
+		    }else{
+		    	if(this.versDroite == true){str = "src/images/" + nom + "MarcheDroite.png";}
+		    	else{str = "src/images/" + nom + "MarcheGauche.png";}	
+		    }		    
+		    if (this.compteur == 2 * frequence) {this.compteur = 0;}
+		}
+		// Affichage de l'image du personnage
+		ico = new ImageIcon(str);
+		img = ico.getImage();
+		return img;
+	}
+	
     public Image saute(){
 		
 	    ImageIcon ico;

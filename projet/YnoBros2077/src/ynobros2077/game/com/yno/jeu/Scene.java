@@ -10,9 +10,10 @@ import javax.swing.JPanel;
 
 import ynobros2077.game.com.yno.objets.Bloc;
 import ynobros2077.game.com.yno.objets.Objet;
-import  ynobros2077.game.com.yno.objets.Piece;
+import ynobros2077.game.com.yno.objets.Piece;
 import ynobros2077.game.com.yno.objets.TuyauRouge;
-import ynobros2077.game.com.yno..personnages.Mario;
+import ynobros2077.game.com.yno.personnages.Champ;
+import ynobros2077.game.com.yno.personnages.Mario;
 
 @SuppressWarnings("serial")
 public class Scene extends JPanel {
@@ -36,6 +37,8 @@ public class Scene extends JPanel {
 	
 	public Mario mario;
 	
+	public Champ champ;
+
 	public TuyauRouge tuyauRouge1;
 	public TuyauRouge tuyauRouge2;
 	public TuyauRouge tuyauRouge3;
@@ -99,6 +102,7 @@ public class Scene extends JPanel {
 		this.imgDepart = this.icoDepart.getImage();
 		
 		mario = new Mario(300, 245);
+		champ = new Champ(800, 263);
 		
 		tuyauRouge1 = new TuyauRouge(600, 230);
 		tuyauRouge2 = new TuyauRouge(1000, 230);
@@ -233,6 +237,7 @@ public class Scene extends JPanel {
 		for(int i = 0; i < this.tabObjets.size(); i++){
 		    // mario
 		    if(this.mario.proche(this.tabObjets.get(i))){this.mario.contact(this.tabObjets.get(i));}
+			if(this.champ.proche(this.tabObjets.get(i))){this.champ.contact(this.tabObjets.get(i));}
 		}
 		
     	// Detection des contacts de mario avec des pieces
@@ -248,7 +253,8 @@ public class Scene extends JPanel {
 		this.deplacementFond();
 		if(this.xPos >= 0 && this.xPos <= 4430){
 		    for(int i = 0; i < this.tabObjets.size(); i++){this.tabObjets.get(i).deplacement();}
-		    for(int i = 0; i < this.tabPieces.size(); i++){this.tabPieces.get(i).deplacement();}		    
+		    for(int i = 0; i < this.tabPieces.size(); i++){this.tabPieces.get(i).deplacement();}
+			this.champ.deplacement();		    
 		}
 		// Image de fond
 		g2.drawImage(this.imgFond1, this.xFond1, 0, null);
@@ -278,5 +284,9 @@ public class Scene extends JPanel {
         // Image de mario
  		if(this.mario.isSaut()){g2.drawImage(this.mario.saute(), this.mario.getX(), this.mario.getY(), null);}
  		else{g2.drawImage(this.mario.marche("mario", 25), this.mario.getX(), this.mario.getY(), null);}	
+
+		// Image du champignon
+		g2.drawImage(this.champ.marche("champ", 45), this.champ.getX(), this.champ.getY(), null);
+
 	}
 }

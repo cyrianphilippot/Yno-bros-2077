@@ -60,7 +60,7 @@ public class Personnage {
 		ImageIcon ico;
 		Image img;
 		
-		if(this.marche == false || Main.scene.getxPos() <= 0 || Main.scene.getxPos() > 4430){
+		if(this.marche == false){
 			if(this.versDroite == true){str = "/images/" + nom + "ArretDroite.png";}
 			else{str = "/images/" + nom + "ArretGauche.png";}
 		}else{
@@ -80,14 +80,18 @@ public class Personnage {
 		return img;
 	}
 	
-	// Detection contact � droite de Mario
+	public void deplacement(){		
+		if(Main.scene.getxPos() >= 0){this.x = this.x - Main.scene.getDx();}
+	}
+
+	// Detection contact a droite de Mario
     protected boolean contactAvant(Objet objet){
 	    if(this.x + this.largeur < objet.getX() || this.x + this.largeur > objet.getX() + 5 ||
 	       this.y + this.hauteur <= objet.getY() || this.y >= objet.getY() + objet.getHauteur()){return false;}
 		else{return true;}
 	} 
     
-    // Detection contact � gauche de Mario
+    // Detection contact a gauche de Mario
     protected boolean contactArriere(Objet objet){		
 		if(this.x > objet.getX() + objet.getLargeur() || this.x + this.largeur < objet.getX() + objet.getLargeur() - 5 || 
 		   this.y + this.hauteur <= objet.getY() || this.y >= objet.getY() + objet.getHauteur()){return false;}
