@@ -50,10 +50,12 @@ public class Champ extends Personnage implements Runnable{
 		try{Thread.sleep(20);} // on attend 20 ms avant d'appeler bouge pour que tous les objets soient completement crees
 		catch (InterruptedException e){}		
 		
-		while(true){ // boucle infinie											
+		while(true){ // boucle infinie	
+			if(this.vivant == true){								
 		    this.bouge();
 		    try{Thread.sleep(PAUSE);}
 			catch (InterruptedException e){}
+			}
 		}
 	}
 	
@@ -76,4 +78,16 @@ public class Champ extends Personnage implements Runnable{
     	    this.dxChamp = 1;     
         }	
     }
+
+	public Image meurt(){		
+		String str;
+    	ImageIcon ico;
+		Image img;	
+		
+        if(this.isVersDroite() == true){str = "/images/champEcraseDroite.png";}
+        else{str = "/images/champEcraseGauche.png";}
+		ico = new ImageIcon(getClass().getResource(str));
+		img = ico.getImage();
+		return img; 
+	} 
 }

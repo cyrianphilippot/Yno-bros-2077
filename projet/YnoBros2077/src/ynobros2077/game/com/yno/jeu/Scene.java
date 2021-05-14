@@ -255,6 +255,9 @@ public class Scene extends JPanel {
 		
 		if(this.champ.proche(tortue)){this.champ.contact(tortue);}
  	 	if(this.tortue.proche(champ)){this.tortue.contact(champ);}
+ 	 	
+ 	 	if(this.mario.proche(champ) && this.champ.isVivant() == true){this.mario.contact(champ);}
+ 	 	if(this.mario.proche(tortue) && this.tortue.isVivant() == true){this.mario.contact(tortue);}
 
 		// Deplacement de tous les objets "fixes" du jeu		
 		this.deplacementFond();
@@ -286,7 +289,7 @@ public class Scene extends JPanel {
  	 	
  	    // Image du drapeau d'arrivee
  	 	g2.drawImage(imgDrapeau, 4650 - this.xPos, 115, null);
- 	    // Image du ch�teau d'arrive
+ 	    // Image du chateau d'arrive
 		 e
  		g2.drawImage(imgChateauFin, 5000 - this.xPos, 145, null);
  	 	
@@ -295,9 +298,17 @@ public class Scene extends JPanel {
  		else{g2.drawImage(this.mario.marche("mario", 25), this.mario.getX(), this.mario.getY(), null);}	
 
 		// Image du champignon
-		g2.drawImage(this.champ.marche("champ", 45), this.champ.getX(), this.champ.getY(), null);
+		if(this.champ.isVivant() == true){
+            g2.drawImage(this.champ.marche("champ", 45), this.champ.getX(), this.champ.getY(), null);
+ 		}else{
+ 		    g2.drawImage(this.champ.meurt(), this.champ.getX(), this.champ.getY() + 20, null);
+ 		}
 
-		// Image de la tortue
-		g2.drawImage(this.tortue.marche("tortue", 45), this.tortue.getX(), this.tortue.getY(), null);
+ 		// Image de la tortue
+ 		if(this.tortue.isVivant() == true){
+ 		    g2.drawImage(this.tortue.marche("tortue", 45), this.tortue.getX(), this.tortue.getY(), null);
+ 		}else{
+ 			g2.drawImage(this.tortue.meurt(), this.tortue.getX(), this.tortue.getY() + 30, null);
+ 		}
 	}
 }

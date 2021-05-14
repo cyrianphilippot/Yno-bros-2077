@@ -15,6 +15,7 @@ public class Personnage {
 	protected boolean marche; // vrai quand le personnage marche
 	protected boolean versDroite; // vrai quand le personnage est tourn� vers la droite
 	public int compteur; // compteur des pas du personnage
+	protected boolean vivant; // vrai si le personnage est vivant
 	
 	//**** CONSTRUCTEUR ****//
 	public Personnage(int x, int y, int largeur, int hauteur){				
@@ -25,6 +26,7 @@ public class Personnage {
 		this.compteur = 0;
 		this.marche = false;
 		this.versDroite = true;
+		this.vivant = true;
 	}
 	
 	//**** GETTERS ****//	
@@ -41,6 +43,8 @@ public class Personnage {
 	public boolean isVersDroite() {return versDroite;}
 
 	public int getCompteur() {return compteur;}
+
+	public boolean isVivant() {return vivant;}
 	
 	//**** SETTERS ****//	
 	public void setX(int x) {this.x = x;}
@@ -52,6 +56,8 @@ public class Personnage {
 	public void setVersDroite(boolean versDroite) {this.versDroite = versDroite;}
 
 	public void setCompteur(int compteur) {this.compteur = compteur;}
+
+	public void setVivant(boolean vivant) {this.vivant = vivant;}
 	
 	 //**** METHODES ****//
 	public Image marche(String nom, int frequence){
@@ -129,6 +135,12 @@ public class Personnage {
     protected boolean contactArriere(Personnage personnage){	
 		if(this.x > personnage.getX() + personnage.getLargeur() || this.x + this.largeur < personnage.getX() + personnage.getLargeur() - 5 || 
 		   this.y + this.hauteur <= personnage.getY() || this.y >= personnage.getY() + personnage.getHauteur()){return false;}
+		else{return true;}
+	}
+
+	protected boolean contactDessous(Personnage personnage){
+    	if(this.x + this.largeur < personnage.getX() || this.x > personnage.getX() + personnage.getLargeur() || 
+    	   this.y + this.hauteur < personnage.getY() || this.y + this.hauteur > personnage.getY()){return false;}
 		else{return true;}
 	}
     

@@ -48,10 +48,12 @@ public class Tortue extends Personnage implements Runnable{
 		try{Thread.sleep(20);} // on attend 20 ms avant d'appeler bouge pour que tous les objets soient completement crees
 		catch (InterruptedException e){}		
 		
-		while(true){ // boucle infinie											
+		while(true){ // boucle infinie	
+			if(this.vivant ==ture){										
 		    this.bouge();
 		    try{Thread.sleep(PAUSE);}
 			catch (InterruptedException e){}
+			}
 		}
 	}
 	
@@ -75,4 +77,15 @@ public class Tortue extends Personnage implements Runnable{
     	    this.dxTortue = 1;     
         }	
     }
+
+	public Image meurt(){		
+		String str;
+    	ImageIcon ico;
+		Image img;	
+		
+        str = "/images/tortueFermee.png";	
+        ico = new ImageIcon(getClass().getResource(str));
+		img = ico.getImage();
+		return img;
+	}
 }
