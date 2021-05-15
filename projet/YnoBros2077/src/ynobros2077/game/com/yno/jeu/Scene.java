@@ -1,5 +1,6 @@
 package ynobros2077.game.com.yno.jeu;
 
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
@@ -8,6 +9,8 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import ynobros2077.game.com.yno.affichage.CompteARebours;
+import ynobros2077.game.com.yno.affichage.Score;
 import ynobros2077.game.com.yno.objets.Bloc;
 import ynobros2077.game.com.yno.objets.Objet;
 import ynobros2077.game.com.yno.objets.Piece;
@@ -37,9 +40,6 @@ public class Scene extends JPanel {
 	private int hauteurPlafond;
 	
 	public Mario mario;
-	
-	public Champ champ;
-	public Tortue tortue;
 
 	public TuyauRouge tuyauRouge1;
 	public TuyauRouge tuyauRouge2;
@@ -74,6 +74,25 @@ public class Scene extends JPanel {
 	public Piece piece9;
 	public Piece piece10;
 	
+	public Champ champ1;
+	public Champ champ2;
+	public Champ champ3;
+	public Champ champ4;
+	public Champ champ5;
+	public Champ champ6;
+	public Champ champ7;
+	public Champ champ8;
+	
+	public Tortue tortue1;
+	public Tortue tortue2;
+	public Tortue tortue3;
+	public Tortue tortue4;
+	public Tortue tortue5;
+	public Tortue tortue6;
+	public Tortue tortue7;
+	public Tortue tortue8;
+	public Tortue tortue9;
+
 	private ImageIcon icoDrapeau;
 	private Image imgDrapeau;
 	private ImageIcon icoChateauFin;
@@ -81,7 +100,13 @@ public class Scene extends JPanel {
 	
 	private ArrayList<Objet> tabObjets; // tableau qui enregistre tous les objets du jeu
 	private ArrayList<Piece> tabPieces; // tableau qui enregistre toutes les pieces du jeu
+	private ArrayList<Tortue> tabTortues; // tableau qui enregistre toutes les tortues du jeu
+	private ArrayList<Champ> tabChamps; // tableau qui enregistre tous les champignons du jeu
 	
+	private Score score;
+	private Font police;
+	private CompteARebours compteARebours;
+
 	//**** CONSTRUCTEUR ****//	
 	public Scene(){
 		
@@ -104,8 +129,6 @@ public class Scene extends JPanel {
 		this.imgDepart = this.icoDepart.getImage();
 		
 		mario = new Mario(300, 245);
-		champ = new Champ(800, 263);
-		tortue = new Tortue(950, 243);
 		
 		tuyauRouge1 = new TuyauRouge(600, 230);
 		tuyauRouge2 = new TuyauRouge(1000, 230);
@@ -139,6 +162,25 @@ public class Scene extends JPanel {
 		piece8 = new Piece(3400, 125);
 		piece9 = new Piece(4200, 145);
 		piece10 = new Piece(4600, 40);
+
+		champ1 = new Champ(800, 263);
+		champ2 = new Champ(1100, 263);
+		champ3 = new Champ(2100, 263);
+		champ4 = new Champ(2400, 263);
+		champ5 = new Champ(3200, 263);
+		champ6 = new Champ(3500, 263);
+		champ7 = new Champ(3700, 263);
+		champ8 = new Champ(4500, 263);
+		
+		tortue1 = new Tortue(950, 243);
+		tortue2 = new Tortue(1500, 243);
+		tortue3 = new Tortue(1800, 243);
+		tortue4 = new Tortue(2400, 243);
+		tortue5 = new Tortue(3100, 243);
+		tortue6 = new Tortue(3600, 243);
+		tortue7 = new Tortue(3900, 243);
+		tortue8 = new Tortue(4200, 243);
+		tortue9 = new Tortue(4400, 243);
 		
 		this.icoChateauFin = new ImageIcon(getClass().getResource("/images/chateauFin.png")); 
 		this.imgChateauFin = this.icoChateauFin.getImage(); 
@@ -147,7 +189,6 @@ public class Scene extends JPanel {
 		this.imgDrapeau = this.icoDrapeau.getImage(); 
 		
 		tabObjets = new ArrayList<Objet>();	
-		
 		this.tabObjets.add(this.tuyauRouge1);
 		this.tabObjets.add(this.tuyauRouge2);
 		this.tabObjets.add(this.tuyauRouge3);
@@ -182,10 +223,35 @@ public class Scene extends JPanel {
 		this.tabPieces.add(this.piece9);
 		this.tabPieces.add(this.piece10);
 
+		tabChamps = new ArrayList<Champ>();	
+		this.tabChamps.add(this.champ1);
+		this.tabChamps.add(this.champ2);
+		this.tabChamps.add(this.champ3);
+		this.tabChamps.add(this.champ4);
+		this.tabChamps.add(this.champ5);
+		this.tabChamps.add(this.champ6);
+		this.tabChamps.add(this.champ7);
+		this.tabChamps.add(this.champ8);
+		
+		tabTortues = new ArrayList<Tortue>();
+		this.tabTortues.add(this.tortue1);
+		this.tabTortues.add(this.tortue2);
+		this.tabTortues.add(this.tortue3);
+		this.tabTortues.add(this.tortue4);
+		this.tabTortues.add(this.tortue5);
+		this.tabTortues.add(this.tortue6);
+		this.tabTortues.add(this.tortue7);
+		this.tabTortues.add(this.tortue8);
+		this.tabTortues.add(this.tortue9);
+		
 		this.setFocusable(true);
 		this.requestFocusInWindow();
 		this.addKeyListener(new Clavier());
 		
+		score = new Score();
+		police = new Font("Arial", Font.PLAIN, 18);
+		compteARebours = new CompteARebours();
+
 		Thread chronoEcran = new Thread(new Chrono());
 		chronoEcran.start();
 	}
@@ -240,8 +306,14 @@ public class Scene extends JPanel {
 		for(int i = 0; i < this.tabObjets.size(); i++){
 		    // mario
 		    if(this.mario.proche(this.tabObjets.get(i))){this.mario.contact(this.tabObjets.get(i));}
-			if(this.champ.proche(this.tabObjets.get(i))){this.champ.contact(this.tabObjets.get(i));}
-			if(this.tortue.proche(this.tabObjets.get(i))){this.tortue.contact(this.tabObjets.get(i));}
+		    // champignons
+ 		    for(int j = 0; j < this.tabChamps.size(); j++){
+ 			  if(this.tabChamps.get(j).proche(this.tabObjets.get(i))){this.tabChamps.get(j).contact(this.tabObjets.get(i));} 
+ 		    }
+ 		    // tortues
+ 		    for(int j = 0; j < this.tabTortues.size(); j++){
+ 			  if(this.tabTortues.get(j).proche(this.tabObjets.get(i))){this.tabTortues.get(j).contact(this.tabObjets.get(i));} 
+ 		    }
 		}
 		
     	// Detection des contacts de mario avec des pieces
@@ -249,23 +321,60 @@ public class Scene extends JPanel {
  	 		if(this.mario.proche(this.tabPieces.get(i))){
  	 			if(this.mario.contactPiece(this.tabPieces.get(i))){
  	 				this.tabPieces.remove(i);
+					this.score.setNbrePieces(this.score.getNbrePieces() + 1);
  	 			}
  	 	    }
  	 	}
-		
-		if(this.champ.proche(tortue)){this.champ.contact(tortue);}
- 	 	if(this.tortue.proche(champ)){this.tortue.contact(champ);}
- 	 	
- 	 	if(this.mario.proche(champ) && this.champ.isVivant() == true){this.mario.contact(champ);}
- 	 	if(this.mario.proche(tortue) && this.tortue.isVivant() == true){this.mario.contact(tortue);}
+
+		// Detections des contacts des champignons avec les personnages (hors mario)
+		for(int i = 0; i < this.tabChamps.size(); i++){ 
+			// champignons
+			for(int j = 0; j < this.tabChamps.size(); j++){
+				if(j != i){ 					 				
+					if(this.tabChamps.get(j).proche(this.tabChamps.get(i))){this.tabChamps.get(j).contact(this.tabChamps.get(i));}
+				}
+			}
+			// tortues
+			for(int j = 0; j < this.tabTortues.size(); j++){
+				if(this.tabTortues.get(j).proche(this.tabChamps.get(i))){this.tabTortues.get(j).contact(this.tabChamps.get(i));}
+				}
+			}
+
+			// Detections des contacts des tortues avec les personnages (hors mario)
+			for(int i = 0; i < this.tabTortues.size(); i++){  
+				// champignons
+				for(int j = 0; j < this.tabChamps.size(); j++){
+					if(this.tabChamps.get(j).proche(this.tabTortues.get(i))){this.tabChamps.get(j).contact(this.tabTortues.get(i));} 
+				}
+				// tortues
+				for(int j = 1; j < this.tabTortues.size(); j++){
+					if(j != i){
+						if(this.tabTortues.get(j).proche(this.tabTortues.get(i))){this.tabTortues.get(j).contact(this.tabTortues.get(i));} 
+					}
+				}
+			}    
+
+			// Detection des contacts de mario avec des personnages
+			// champignons
+			for(int i = 0; i < this.tabChamps.size(); i++){ 
+				if(this.mario.proche(this.tabChamps.get(i)) && this.tabChamps.get(i).isVivant() == true){
+					this.mario.contact(this.tabChamps.get(i)); 				  				
+				}
+			}
+			// tortues
+			for(int i = 0; i < this.tabTortues.size(); i++){
+				if(this.mario.proche(this.tabTortues.get(i)) && this.tabTortues.get(i).isVivant() == true){
+					this.mario.contact(this.tabTortues.get(i)); 	 		
+				}
+			} 	 	
 
 		// Deplacement de tous les objets "fixes" du jeu		
 		this.deplacementFond();
 		if(this.xPos >= 0 && this.xPos <= 4430){
 		    for(int i = 0; i < this.tabObjets.size(); i++){this.tabObjets.get(i).deplacement();}
 		    for(int i = 0; i < this.tabPieces.size(); i++){this.tabPieces.get(i).deplacement();}
-			this.champ.deplacement();
-			this.tortue.deplacement();		    
+			for(int i = 0; i < this.tabChamps.size(); i++){this.tabChamps.get(i).deplacement();}
+	 		for(int i = 0; i < this.tabTortues.size(); i++){this.tabTortues.get(i).deplacement();}	    
 		}
 		
 		// Image de fond
@@ -297,18 +406,29 @@ public class Scene extends JPanel {
  		if(this.mario.isSaut()){g2.drawImage(this.mario.saute(), this.mario.getX(), this.mario.getY(), null);}
  		else{g2.drawImage(this.mario.marche("mario", 25), this.mario.getX(), this.mario.getY(), null);}	
 
-		// Image du champignon
-		if(this.champ.isVivant() == true){
-            g2.drawImage(this.champ.marche("champ", 45), this.champ.getX(), this.champ.getY(), null);
- 		}else{
- 		    g2.drawImage(this.champ.meurt(), this.champ.getX(), this.champ.getY() + 20, null);
- 		}
+		// Images des champignons
+		for(int i = 0; i < this.tabChamps.size(); i++){
+			if(this.tabChamps.get(i).isVivant() == true){
+				g2.drawImage(this.tabChamps.get(i).marche("champ", 45), this.tabChamps.get(i).getX(), this.tabChamps.get(i).getY(), null);
+			}else{
+				g2.drawImage(this.tabChamps.get(i).meurt(), this.tabChamps.get(i).getX(), this.tabChamps.get(i).getY() + 20, null); 								
+			}
+		}
+			
+		// Images des tortues
+	   	for(int i = 0; i < this.tabTortues.size(); i++){
+			if(this.tabTortues.get(i).isVivant() == true){
+				g2.drawImage(this.tabTortues.get(i).marche("tortue", 50), this.tabTortues.get(i).getX(), this.tabTortues.get(i).getY(), null);
+			}else{
+				g2.drawImage(this.tabTortues.get(i).meurt(), this.tabTortues.get(i).getX(), this.tabTortues.get(i).getY() + 30, null);				
+			}
+		} 
 
- 		// Image de la tortue
- 		if(this.tortue.isVivant() == true){
- 		    g2.drawImage(this.tortue.marche("tortue", 45), this.tortue.getX(), this.tortue.getY(), null);
- 		}else{
- 			g2.drawImage(this.tortue.meurt(), this.tortue.getX(), this.tortue.getY() + 30, null);
- 		}
+		// Mise a jour du score
+	    g2.setFont(police);
+	    g2.drawString(this.score.getNbrePieces() + " piece(s) en poche sur " + this.score.getNBRE_TOTAL_PIECES(), 460, 25);
+
+		// Mise a jour du temps de jeu restant
+	    g2.drawString(this.compteARebours.getStr(), 5, 25);
 	}
 }
