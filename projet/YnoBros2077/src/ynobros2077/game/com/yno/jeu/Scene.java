@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 
 import ynobros2077.game.com.yno.affichage.CompteARebours;
 import ynobros2077.game.com.yno.affichage.Score;
+import  ynobros2077.game.com.yno.audio.Audio;
 import ynobros2077.game.com.yno.objets.Bloc;
 import ynobros2077.game.com.yno.objets.Objet;
 import ynobros2077.game.com.yno.objets.Piece;
@@ -38,7 +39,7 @@ public class Scene extends JPanel {
 	private int xPos;
 	private int ySol;
 	private int hauteurPlafond;
-	
+	private boolean ok;
 	public Mario mario;
 
 	public TuyauRouge tuyauRouge1;
@@ -118,7 +119,8 @@ public class Scene extends JPanel {
 		this.xPos = -1;
 		this.ySol = 293;
 		this.hauteurPlafond = 0;
-		
+		this.ok = true;
+
 		icoFond = new ImageIcon(getClass().getResource("/images/fondEcran.png"));
 		this.imgFond1 = this.icoFond.getImage();
 		this.imgFond2 = this.icoFond.getImage();
@@ -296,12 +298,16 @@ public class Scene extends JPanel {
 		else if (this.xFond2 == 800){this.xFond2 = -800;}
 		}
 
-	private boolean partieGagnee(){		
-		if(this.compteARebours.getCompteurTemps() > 0 && this.mario.isVivant() == true && this.score.getNbrePieces() == 10 
-			&& this.xPos > 4400){
-			return true;
-		}else{return false;}
-	}
+		private boolean partieGagnee(){		
+			if(this.compteARebours.getCompteurTemps() > 0 && this.mario.isVivant() == true && this.score.getNbrePieces() == 10 
+				&& this.xPos > 4400){
+				if(this.ok == true){
+					Audio.playSound("/audio/partieGagnee.wav");
+					this.ok = false;
+				}
+				return true;
+			}else{return false;}
+		}
 	
 	private boolean partiePerdue(){
 		if(this.mario.isVivant() == false || this.compteARebours.getCompteurTemps() <= 0){
@@ -334,10 +340,11 @@ public class Scene extends JPanel {
 		}
 		
     	// Detection des contacts de mario avec des pieces
- 	 	for(int i = 0; i < this.tabPieces.size(); i++){
- 	 		if(this.mario.proche(this.tabPieces.get(i))){
- 	 			if(this.mario.contactPiece(this.tabPieces.get(i))){
- 	 				this.tabPieces.remove(i);
+		for(int i = 0; i < this.tabPieces.size(); i++){
+			if(this.mario.proche(this.tabPieces.get(i))){
+				if(this.mario.contactPiece(this.tabPieces.get(i))){
+					Audio.playSound("/audio/piece.wav");
+					this.tabPieces.remove(i);
 					this.score.setNbrePieces(this.score.getNbrePieces() + 1);
  	 			}
  	 	    }
@@ -375,13 +382,15 @@ public class Scene extends JPanel {
 			// champignons
 			for(int i = 0; i < this.tabChamps.size(); i++){ 
 				if(this.mario.proche(this.tabChamps.get(i)) && this.tabChamps.get(i).isVivant() == true){
-					this.mario.contact(this.tabChamps.get(i)); 				  				
+					this.mario.contact(this.tabChamps.get(i)); 	
+					if(this.tabChamps.get(i).isVivant() == false){Audio.playSound("/audio/ecrasePersonnage.wav");}			  				
 				}
 			}
 			// tortues
 			for(int i = 0; i < this.tabTortues.size(); i++){
 				if(this.mario.proche(this.tabTortues.get(i)) && this.tabTortues.get(i).isVivant() == true){
-					this.mario.contact(this.tabTortues.get(i)); 	 		
+					this.mario.contact(this.tabTortues.get(i)); 	 
+					if(this.tabTortues.get(i).isVivant() == false){Audio.playSound("/audio/ecrasePersonnage.wav");}		
 				}
 			} 	 	
 

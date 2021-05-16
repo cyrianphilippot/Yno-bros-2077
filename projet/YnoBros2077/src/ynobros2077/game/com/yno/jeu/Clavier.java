@@ -3,6 +3,8 @@ package ynobros2077.game.com.yno.jeu;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
+import ynobros2077.game.com.yno.audio.Audio;
+
 public class Clavier implements KeyListener{
 
 	@Override
@@ -28,7 +30,9 @@ public class Clavier implements KeyListener{
 				Main.scene.setDx(-1); // D�placement du fond vers la droite lors de l'appui sur la touche "fleche gauche"
 			}
 			// mario saute
-			if (e.getKeyCode() == KeyEvent.VK_SPACE) {Main.scene.mario.setSaut(true);}
+			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+				Main.scene.mario.setSaut(true);
+				Audio.playSound("/audio/saut.wav");
 		}
 	}
 
