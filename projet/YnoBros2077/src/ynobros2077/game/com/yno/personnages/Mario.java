@@ -45,21 +45,21 @@ public class Mario extends Personnage{
 		Image img;
 			
 		if (this.marche == false || Main.scene.getxPos() <= 0 || Main.scene.getxPos() > 4430) {
-			if(this.versDroite == true){str = "src/images/" + nom + "ArretDroite.png";}
-			else{str = "src/images/" + nom + "ArretGauche.png";}				
+			if(this.versDroite == true){str = "/images/" + nom + "ArretDroite.png";}
+			else{str = "/images/" + nom + "ArretGauche.png";}				
 		}else{
 		    this.compteur++;
 		    if (this.compteur / frequence == 0) { // quotient de la division euclidienne de compteur par frequence
-		    	if(this.versDroite == true){str = "src/images/" + nom + "ArretDroite.png";}
-		    	else{str = "src/images/" + nom + "ArretGauche.png";}					
+		    	if(this.versDroite == true){str = "/images/" + nom + "ArretDroite.png";}
+		    	else{str = "/images/" + nom + "ArretGauche.png";}					
 		    }else{
-		    	if(this.versDroite == true){str = "src/images/" + nom + "MarcheDroite.png";}
-		    	else{str = "src/images/" + nom + "MarcheGauche.png";}	
+		    	if(this.versDroite == true){str = "/images/" + nom + "MarcheDroite.png";}
+		    	else{str = "/images/" + nom + "MarcheGauche.png";}	
 		    }		    
 		    if (this.compteur == 2 * frequence) {this.compteur = 0;}
 		}
 		// Affichage de l'image du personnage
-		ico = new ImageIcon(str);
+		ico = new ImageIcon(getClass().getResource(str));
 		img = ico.getImage();
 		return img;
 	}
