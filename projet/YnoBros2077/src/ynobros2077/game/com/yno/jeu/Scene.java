@@ -296,6 +296,23 @@ public class Scene extends JPanel {
 		else if (this.xFond2 == 800){this.xFond2 = -800;}
 		}
 
+	private boolean partieGagnee(){		
+		if(this.compteARebours.getCompteurTemps() > 0 && this.mario.isVivant() == true && this.score.getNbrePieces() == 10 
+			&& this.xPos > 4400){
+			return true;
+		}else{return false;}
+	}
+	
+	private boolean partiePerdue(){
+		if(this.mario.isVivant() == false || this.compteARebours.getCompteurTemps() <= 0){
+			return true;
+		}else{return false;}
+	}
+		
+	public boolean finDePartie(){
+		if(this.partieGagnee() == true || this.partiePerdue() == true){return true;}
+		else{return false;}
+	}
 
 	public void paintComponent(Graphics g) { // Dessin de toutes les images visibles a l'ecran (appel toutes les 3 ms environ)
 		
@@ -399,12 +416,13 @@ public class Scene extends JPanel {
  	    // Image du drapeau d'arrivee
  	 	g2.drawImage(imgDrapeau, 4650 - this.xPos, 115, null);
  	    // Image du chateau d'arrive
-		 e
  		g2.drawImage(imgChateauFin, 5000 - this.xPos, 145, null);
  	 	
         // Image de mario
- 		if(this.mario.isSaut()){g2.drawImage(this.mario.saute(), this.mario.getX(), this.mario.getY(), null);}
- 		else{g2.drawImage(this.mario.marche("mario", 25), this.mario.getX(), this.mario.getY(), null);}	
+		if(this.mario.isVivant() == true){
+			if(this.mario.isSaut()){g2.drawImage(this.mario.saute(), this.mario.getX(), this.mario.getY(), null);}
+			else{g2.drawImage(this.mario.marche("mario", 25), this.mario.getX(), this.mario.getY(), null);}
+		}else{g2.drawImage(this.mario.meurt(), this.mario.getX(), this.mario.getY(), null);}
 
 		// Images des champignons
 		for(int i = 0; i < this.tabChamps.size(); i++){
@@ -430,5 +448,13 @@ public class Scene extends JPanel {
 
 		// Mise a jour du temps de jeu restant
 	    g2.drawString(this.compteARebours.getStr(), 5, 25);
+
+		// Fin de partie
+	    if(this.finDePartie() == true){
+	    	Font policeFin = new Font("Arial", Font.BOLD, 50);
+            g2.setFont(policeFin);
+	        if(this.partieGagnee() == true){g2.drawString("Tu as win !!!", 120, 180);}
+	        else{g2.drawString("Tu as lose ...", 120, 180);}
+ 	    }
 	}
 }

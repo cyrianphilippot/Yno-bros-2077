@@ -15,6 +15,7 @@ public class Mario extends Personnage{
 	private ImageIcon icoMario;	
 	private boolean saut; 
     private int compteurSaut;
+	private int compteurMort;
     
 	//**** CONSTRUCTEUR	****//	
 	public Mario(int x, int y) {
@@ -24,6 +25,7 @@ public class Mario extends Personnage{
         
         this.saut = false;
     	this.compteurSaut = 0;
+		this.compteurMort = 0;
 	}
 	
     //**** GETTERS ****//		
@@ -132,4 +134,30 @@ public class Mario extends Personnage{
 			personnage.setVivant(false);
 		}
     }
+	
+	public void contact(Personnage personnage) {		
+		if((super.contactAvant(personnage) == true) || (super.contactArriere(personnage) == true)){
+			this.setMarche(false);
+		    this.setVivant(false);
+		}else if(super.contactDessous(personnage) == true){
+			personnage.setMarche(false);
+			personnage.setVivant(false);
+		}
+    }
+	
+	public Image meurt(){		
+		String str;
+    	ImageIcon ico;
+		Image img;	
+		
+        str = "/images/boom.png";
+        this.compteurMort++;
+        if(this.compteurMort > 100){
+        	str = "/images/marioMeurt.png";
+        	this.setY(this.getY() - 1);
+        }
+		ico = new ImageIcon(getClass().getResource(str));
+		img = ico.getImage();
+		return img; 
+	} 
 }
