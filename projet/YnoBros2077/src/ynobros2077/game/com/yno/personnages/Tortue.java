@@ -37,7 +37,7 @@ public class Tortue extends Personnage implements Runnable{
 			
 			
 	//**** METHODES ****//	
-	public void bouge(){ // D�placement de la tortue
+	public void bouge(){ // Deplacement de la tortue
 	    if(super.isVersDroite() == true){this.dxTortue = 1;}
 	    else{this.dxTortue = -1;}
 	    super.setX(super.getX() + this.dxTortue);  	

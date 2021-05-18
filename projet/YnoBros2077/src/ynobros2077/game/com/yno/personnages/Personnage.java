@@ -13,7 +13,7 @@ public class Personnage {
 	private int largeur, hauteur; //dimensions du personnage
 	private int x, y; //position du personnage	
 	protected boolean marche; // vrai quand le personnage marche
-	protected boolean versDroite; // vrai quand le personnage est tourn� vers la droite
+	protected boolean versDroite; // vrai quand le personnage est tourne vers la droite
 	public int compteur; // compteur des pas du personnage
 	protected boolean vivant; // vrai si le personnage est vivant
 	

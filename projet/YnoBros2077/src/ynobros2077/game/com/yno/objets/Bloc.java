@@ -5,7 +5,6 @@ import javax.swing.ImageIcon;
 public class Bloc extends Objet{
 		//**** VARIABLES ****//
 		
-		
 		//**** CONSTRUCTEUR	****//	
 		public Bloc(int x, int y) {
 
@@ -14,12 +13,9 @@ public class Bloc extends Objet{
 			super.imgObjet = this.icoObjet.getImage();
 		}
 		
-		
 		//**** GETTERS ****//		
 			
-			
 		//**** SETTERS ****//
-			
 
 		//**** METHODES ****//
 }

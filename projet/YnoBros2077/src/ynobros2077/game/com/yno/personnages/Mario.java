@@ -152,8 +152,8 @@ public class Mario extends Personnage{
 		Image img;	
 		
         str = "/images/boom.png";
-        if(this.compteurMort == 0){Audio.playSound("/audio/boum.wav");}
-        if(this.compteurMort == 100){Audio.playSound("/audio/partiePerdue.wav");}
+        if(this.compteurMort == 0){Audio.playSound("../../../audio/boum.wav");}
+        if(this.compteurMort == 100){Audio.playSound("../../../audio/partiePerdue.wav");}
         this.compteurMort++;       
         if(this.compteurMort > 100){
         	str = "/images/marioMeurt.png";
