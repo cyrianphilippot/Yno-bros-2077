@@ -31,10 +31,8 @@ public class Tortue extends Personnage implements Runnable{
 		
 	//**** GETTERS ****//		
 	public Image getImgTortue() {return imgTortue;}
-
-			
+	
 	//**** SETTERS ****//
-			
 			
 	//**** METHODES ****//	
 	public void bouge(){ // Deplacement de la tortue
