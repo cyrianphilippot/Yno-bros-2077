@@ -4,6 +4,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+import ynobros2077.game.com.yno.audio.Audio;
 import ynobros2077.game.com.yno.jeu.Main;
 import ynobros2077.game.com.yno.objets.Objet;
 import ynobros2077.game.com.yno.objets.Piece;
