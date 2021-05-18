@@ -49,7 +49,7 @@ public class Tortue extends Personnage implements Runnable{
 		catch (InterruptedException e){}		
 		
 		while(true){ // boucle infinie	
-			if(this.vivant ==ture){										
+			if(this.vivant ==true){										
 		    this.bouge();
 		    try{Thread.sleep(PAUSE);}
 			catch (InterruptedException e){}

@@ -1,8 +1,27 @@
 package ynobros2077.game.com.yno.jeu;
 
+import java.awt.EventQueue;
+import java.awt.Window;
+
 import javax.swing.JFrame;
 
 public class Main {
+	
+	protected Object frame;
+
+	public static void launchGame(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Main window = new Main();
+					((Window) window.frame).setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+	
 
 	public static Scene scene;
 	

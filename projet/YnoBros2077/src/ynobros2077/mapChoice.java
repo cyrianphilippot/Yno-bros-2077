@@ -1,8 +1,8 @@
 package ynobros2077;
-import ynobros2077.game.*;
+import ynobros2077.game.com.yno.jeu.*;
 
 import ynobros2077.pageMenu;
-import ynobros2077.game.Main;
+import ynobros2077.game.com.yno.jeu.Main;
 
 import java.awt.EventQueue;
 
@@ -70,8 +70,10 @@ public class mapChoice {
 		
 		JButton btnNewButton_1 = new JButton("1");
 		btnNewButton_1.addActionListener(new ActionListener() {
+			private String[] args;
+
 			public void actionPerformed(ActionEvent arg0) {
-				Main.launchLevel1();
+				Main.launchGame(args);
 			}
 		});
 		btnNewButton_1.setBounds(10, 60, 89, 23);

@@ -35,6 +35,7 @@ public class Clavier implements KeyListener{
 				Audio.playSound("/audio/saut.wav");
 		}
 	}
+	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {

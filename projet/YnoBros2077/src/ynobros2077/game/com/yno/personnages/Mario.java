@@ -4,6 +4,7 @@ import java.awt.Image;
 
 import javax.swing.ImageIcon;
 
+import ynobros2077.game.com.yno.audio.Audio;
 import ynobros2077.game.com.yno.jeu.Main;
 import ynobros2077.game.com.yno.objets.Objet;
 import ynobros2077.game.com.yno.objets.Piece;
@@ -135,7 +136,7 @@ public class Mario extends Personnage{
 		}
     }
 	
-	public void contact(Personnage personnage) {		
+	public void contact1(Personnage personnage) {		
 		if((super.contactAvant(personnage) == true) || (super.contactArriere(personnage) == true)){
 			this.setMarche(false);
 		    this.setVivant(false);
