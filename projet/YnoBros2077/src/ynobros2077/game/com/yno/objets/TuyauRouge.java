@@ -6,7 +6,6 @@ public class TuyauRouge extends Objet{
 	
 	//**** VARIABLES ****//
 	
-	
 	//**** CONSTRUCTEUR	****//	
 	public TuyauRouge(int x, int y) {
 
@@ -15,13 +14,10 @@ public class TuyauRouge extends Objet{
 		super.imgObjet = this.icoObjet.getImage();
 	}
 	
-	
 	//**** GETTERS ****//		
-		
-		
+			
 	//**** SETTERS ****//
 		
-
 	//**** METHODES ****//
 
 }

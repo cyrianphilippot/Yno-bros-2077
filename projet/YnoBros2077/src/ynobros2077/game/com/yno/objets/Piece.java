@@ -17,12 +17,9 @@ public class Piece extends Objet implements Runnable{
 	    super.imgObjet = super.icoObjet.getImage();
     }
 
-
     //**** GETTERS ****//		
 
-
     //**** SETTERS ****//
-
 
     //**** METHODES ****//
     public Image bouge(){ // Mouvement de la piece       	

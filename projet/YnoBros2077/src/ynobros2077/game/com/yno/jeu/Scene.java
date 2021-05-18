@@ -302,7 +302,7 @@ public class Scene extends JPanel {
 			if(this.compteARebours.getCompteurTemps() > 0 && this.mario.isVivant() == true && this.score.getNbrePieces() == 10 
 				&& this.xPos > 4400){
 				if(this.ok == true){
-					Audio.playSound("/audio/partieGagnee.wav");
+					Audio.playSound("../../../audio/partieGagnee.wav");
 					this.ok = false;
 				}
 				return true;
@@ -343,7 +343,7 @@ public class Scene extends JPanel {
 		for(int i = 0; i < this.tabPieces.size(); i++){
 			if(this.mario.proche(this.tabPieces.get(i))){
 				if(this.mario.contactPiece(this.tabPieces.get(i))){
-					Audio.playSound("/audio/piece.wav");
+					Audio.playSound("../../../audio/piece.wav");
 					this.tabPieces.remove(i);
 					this.score.setNbrePieces(this.score.getNbrePieces() + 1);
  	 			}
@@ -383,14 +383,14 @@ public class Scene extends JPanel {
 			for(int i = 0; i < this.tabChamps.size(); i++){ 
 				if(this.mario.proche(this.tabChamps.get(i)) && this.tabChamps.get(i).isVivant() == true){
 					this.mario.contact(this.tabChamps.get(i)); 	
-					if(this.tabChamps.get(i).isVivant() == false){Audio.playSound("/audio/ecrasePersonnage.wav");}			  				
+					if(this.tabChamps.get(i).isVivant() == false){Audio.playSound("../../../audio/ecrasePersonnage.wav");}			  				
 				}
 			}
 			// tortues
 			for(int i = 0; i < this.tabTortues.size(); i++){
 				if(this.mario.proche(this.tabTortues.get(i)) && this.tabTortues.get(i).isVivant() == true){
 					this.mario.contact(this.tabTortues.get(i)); 	 
-					if(this.tabTortues.get(i).isVivant() == false){Audio.playSound("/audio/ecrasePersonnage.wav");}		
+					if(this.tabTortues.get(i).isVivant() == false){Audio.playSound("../../../audio/ecrasePersonnage.wav");}		
 				}
 			} 	 	
 

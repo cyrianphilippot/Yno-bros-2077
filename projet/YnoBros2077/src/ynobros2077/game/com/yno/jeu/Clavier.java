@@ -27,15 +27,16 @@ public class Clavier implements KeyListener{
 				}
 				Main.scene.mario.setMarche(true);
 				Main.scene.mario.setVersDroite(false);
-				Main.scene.setDx(-1); // D�placement du fond vers la droite lors de l'appui sur la touche "fleche gauche"
+				Main.scene.setDx(-1); // Deplacement du fond vers la droite lors de l'appui sur la touche "fleche gauche"
 			}
 			// mario saute
 			if (e.getKeyCode() == KeyEvent.VK_SPACE) {
 				Main.scene.mario.setSaut(true);
-				Audio.playSound("/audio/saut.wav");
+				Audio.playSound("../../../audio/saut.wav");
+			}
 		}
 	}
-	}
+	
 
 	@Override
 	public void keyReleased(KeyEvent e) {

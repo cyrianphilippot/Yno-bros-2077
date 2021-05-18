@@ -30,13 +30,10 @@ public class Champ extends Personnage implements Runnable{
 		chronoChamp.start();
 	}
 
-	
 	//**** GETTERS ****//		
 	public Image getImgChamp() {return imgChamp;}
 
-		
 	//**** SETTERS ****//
-		
 		
 	//**** METHODES ****//	
 	public void bouge(){ // deplacement du champignon

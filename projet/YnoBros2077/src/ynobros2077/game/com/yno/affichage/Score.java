@@ -10,14 +10,12 @@ public class Score {
 	public Score(){
 		this.nbrePieces = 0;
 	}
-
 			
 	// GETTERS
 	public int getNbrePieces() {return nbrePieces;}
 
 	public int getNBRE_TOTAL_PIECES() {return NBRE_TOTAL_PIECES;}
 
-			
 	// SETTERS
 	public void setNbrePieces(int nbrePieces) {this.nbrePieces = nbrePieces;}
 }
