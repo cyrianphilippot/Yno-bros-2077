@@ -22,7 +22,7 @@ public class Tortue extends Personnage implements Runnable{
 		super.setMarche(true);
 		this.dxTortue = 1;
 			
-		this.icoTortue = new ImageIcon(getClass().getResource("/images/tortueArretGauche.png"));
+		this.icoTortue = new ImageIcon(getClass().getResource("../../../images/tortueArretGauche.png"));
 		this.imgTortue = this.icoTortue.getImage();
 			
 		Thread chronoChamp = new Thread(this);
@@ -83,7 +83,7 @@ public class Tortue extends Personnage implements Runnable{
     	ImageIcon ico;
 		Image img;	
 		
-        str = "/images/tortueFermee.png";	
+        str = "../../../images/tortueFermee.png";	
         ico = new ImageIcon(getClass().getResource(str));
 		img = ico.getImage();
 		return img;

@@ -21,7 +21,7 @@ public class Mario extends Personnage{
 	//**** CONSTRUCTEUR	****//	
 	public Mario(int x, int y) {
 		super(x, y, 28, 50);
-		this.icoMario = new ImageIcon(getClass().getResource("/images/marioMarcheDroite.png"));
+		this.icoMario = new ImageIcon(getClass().getResource("../../../images/marioMarcheDroite.png"));
         this.imgMario = icoMario.getImage();
         
         this.saut = false;
@@ -52,10 +52,10 @@ public class Mario extends Personnage{
 		    this.compteur++;
 		    if (this.compteur / frequence == 0) { // quotient de la division euclidienne de compteur par frequence
 		    	if(this.versDroite == true){str = "/images/" + nom + "ArretDroite.png";}
-		    	else{str = "/images/" + nom + "ArretGauche.png";}					
+		    	else{str = "../../../images/" + nom + "ArretGauche.png";}					
 		    }else{
 		    	if(this.versDroite == true){str = "/images/" + nom + "MarcheDroite.png";}
-		    	else{str = "/images/" + nom + "MarcheGauche.png";}	
+		    	else{str = "../../../images/" + nom + "MarcheGauche.png";}	
 		    }		    
 		    if (this.compteur == 2 * frequence) {this.compteur = 0;}
 		}
@@ -76,18 +76,18 @@ public class Mario extends Personnage{
 		if(this.compteurSaut <= 40){
 			if(this.getY() > Main.scene.getHautPlafond()){this.setY(this.getY() - 4);}
 			else{this.compteurSaut = 41;}			
-			if(this.isVersDroite() == true){str = "/images/marioSautDroite.png";}
-			else{str = "/images/marioSautGauche.png";}	
+			if(this.isVersDroite() == true){str = "../../../images/marioSautDroite.png";}
+			else{str = "../../../images/marioSautGauche.png";}	
 			
 		// Retombe du saut
 		}else if(this.getY() + this.getHauteur() < Main.scene.getySol()){this.setY(this.getY() + 1);
-			if(this.isVersDroite() == true){str = "/images/marioSautDroite.png";}
-			else{str = "/images/marioSautGauche.png";}
+			if(this.isVersDroite() == true){str = "../../../images/marioSautDroite.png";}
+			else{str = "../../../images/marioSautGauche.png";}
 			
 		// Saut fini
 		}else{				
-			if(this.isVersDroite() == true){str = "/images/marioArretDroite.png";}
-			else{str = "/images/marioArretGauche.png";}	
+			if(this.isVersDroite() == true){str = "../../../images/marioArretDroite.png";}
+			else{str = "../../../images/marioArretGauche.png";}	
 			this.saut = false;
 			this.compteurSaut = 0;
 		}
@@ -156,7 +156,7 @@ public class Mario extends Personnage{
         if(this.compteurMort == 100){Audio.playSound("/audio/partiePerdue.wav");}
         this.compteurMort++;       
         if(this.compteurMort > 100){
-        	str = "/images/marioMeurt.png";
+        	str = "../../../images/marioMeurt.png";
         	this.setY(this.getY() - 1);
         }
 		ico = new ImageIcon(getClass().getResource(str));

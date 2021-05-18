@@ -23,7 +23,7 @@ public class Champ extends Personnage implements Runnable{
 		super.setMarche(true);
 		this.dxChamp = 1;
 		
-		this.icoChamp = new ImageIcon(getClass().getResource("/images/champArretDroite.png"));
+		this.icoChamp = new ImageIcon(getClass().getResource("../../../images/champArretDroite.png"));
 		this.imgChamp = this.icoChamp.getImage();
 		
 		Thread chronoChamp = new Thread(this);
@@ -84,7 +84,7 @@ public class Champ extends Personnage implements Runnable{
     	ImageIcon ico;
 		Image img;	
 		
-        if(this.isVersDroite() == true){str = "/images/champEcraseDroite.png";}
+        if(this.isVersDroite() == true){str = "../../../images/champEcraseDroite.png";}
         else{str = "/images/champEcraseGauche.png";}
 		ico = new ImageIcon(getClass().getResource(str));
 		img = ico.getImage();

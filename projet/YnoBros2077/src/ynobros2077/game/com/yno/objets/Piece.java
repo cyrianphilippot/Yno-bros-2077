@@ -13,7 +13,7 @@ public class Piece extends Objet implements Runnable{
     public Piece(int x, int y){
 	    super(x, y, 30, 30);
 	    
-	    super.icoObjet = new ImageIcon(getClass().getResource("/images/piece1.png"));
+	    super.icoObjet = new ImageIcon(getClass().getResource("../../../images/piece1.png"));
 	    super.imgObjet = super.icoObjet.getImage();
     }
 
@@ -31,7 +31,7 @@ public class Piece extends Objet implements Runnable{
 		Image img;
 			
         this.compteur++;
-		if (this.compteur / 100 == 0) {str = "/images/piece1.png";}
+		if (this.compteur / 100 == 0) {str = "../../../images/piece1.png";}
 		else{str = "/images/piece2.png";}							    
 		if (this.compteur == 200) {this.compteur = 0;}
 		

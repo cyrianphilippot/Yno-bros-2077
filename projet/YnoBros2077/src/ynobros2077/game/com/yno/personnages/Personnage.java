@@ -67,16 +67,16 @@ public class Personnage {
 		Image img;
 		
 		if(this.marche == false){
-			if(this.versDroite == true){str = "/images/" + nom + "ArretDroite.png";}
+			if(this.versDroite == true){str = "../../../images/" + nom + "ArretDroite.png";}
 			else{str = "/images/" + nom + "ArretGauche.png";}
 		}else{
 			this.compteur++;
 			if(this.compteur / frequence == 0){
-				if(this.versDroite == true){str = "/images/" + nom + "ArretDroite.png";}
-				else{str = "/images/" + nom + "ArretGauche.png";}
+				if(this.versDroite == true){str = "../../../images/" + nom + "ArretDroite.png";}
+				else{str = "../../../images/" + nom + "ArretGauche.png";}
 			}else{
-				if(this.versDroite == true){str = "/images/" + nom + "MarcheDroite.png";}
-				else{str = "/images/" + nom + "MarcheGauche.png";}
+				if(this.versDroite == true){str = "../../../images/" + nom + "MarcheDroite.png";}
+				else{str = "../../../images/" + nom + "MarcheGauche.png";}
 			}
 			if(this.compteur == 2 * frequence){this.compteur = 0;}
 		}
