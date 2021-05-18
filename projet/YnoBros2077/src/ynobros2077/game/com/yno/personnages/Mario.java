@@ -47,7 +47,7 @@ public class Mario extends Personnage{
 			
 		if (this.marche == false || Main.scene.getxPos() <= 0 || Main.scene.getxPos() > 4430) {
 			if(this.versDroite == true){str = "/images/" + nom + "ArretDroite.png";}
-			else{str = "/images/" + nom + "ArretGauche.png";}				
+			else{str = "../../../images/" + nom + "ArretGauche.png";}				
 		}else{
 		    this.compteur++;
 		    if (this.compteur / frequence == 0) { // quotient de la division euclidienne de compteur par frequence
@@ -151,7 +151,7 @@ public class Mario extends Personnage{
     	ImageIcon ico;
 		Image img;	
 		
-        str = "/images/boom.png";
+        str = "../../../images/boom.png";
         if(this.compteurMort == 0){Audio.playSound("../../../audio/boum.wav");}
         if(this.compteurMort == 100){Audio.playSound("../../../audio/partiePerdue.wav");}
         this.compteurMort++;       

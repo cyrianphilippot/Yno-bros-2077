@@ -29,7 +29,7 @@ public class Piece extends Objet implements Runnable{
 			
         this.compteur++;
 		if (this.compteur / 100 == 0) {str = "../../../images/piece1.png";}
-		else{str = "/images/piece2.png";}							    
+		else{str = "../../../images/piece2.png";}							    
 		if (this.compteur == 200) {this.compteur = 0;}
 		
 		// Affichage de l'image du personnage

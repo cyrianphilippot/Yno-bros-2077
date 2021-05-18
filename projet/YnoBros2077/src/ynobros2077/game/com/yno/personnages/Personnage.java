@@ -68,7 +68,7 @@ public class Personnage {
 		
 		if(this.marche == false){
 			if(this.versDroite == true){str = "../../../images/" + nom + "ArretDroite.png";}
-			else{str = "/images/" + nom + "ArretGauche.png";}
+			else{str = "../../../images/" + nom + "ArretGauche.png";}
 		}else{
 			this.compteur++;
 			if(this.compteur / frequence == 0){

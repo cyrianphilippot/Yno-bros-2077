@@ -82,7 +82,7 @@ public class Champ extends Personnage implements Runnable{
 		Image img;	
 		
         if(this.isVersDroite() == true){str = "../../../images/champEcraseDroite.png";}
-        else{str = "/images/champEcraseGauche.png";}
+        else{str = "../../../images/champEcraseGauche.png";}
 		ico = new ImageIcon(getClass().getResource(str));
 		img = ico.getImage();
 		return img; 
