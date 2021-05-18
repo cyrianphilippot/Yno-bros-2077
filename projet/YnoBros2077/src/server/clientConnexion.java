@@ -52,7 +52,7 @@ public class clientConnexion {
            // Flush data.
            os.flush();  
            
-           pageMenu.launchPageMenu(args);
+           pageMenu.launchPageMenu();
        
     	   os.write("QUIT");  
            os.newLine();

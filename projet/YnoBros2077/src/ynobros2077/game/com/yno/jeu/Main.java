@@ -9,23 +9,10 @@ public class Main {
 	
 	protected Object frame;
 
-	public static void launchGame(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Main window = new Main();
-					((Window) window.frame).setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
 
 	public static Scene scene;
 	
-	public static void main(String[] args) {
+	public static void startGame() {
 		
 		// Creation de la fenetre de l'application
 		JFrame fenetre = new JFrame("Yno-bros-2077");

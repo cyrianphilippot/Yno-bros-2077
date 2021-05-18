@@ -121,13 +121,13 @@ public class Scene extends JPanel {
 		this.hauteurPlafond = 0;
 		this.ok = true;
 
-		icoFond = new ImageIcon(getClass().getResource("/images/fondEcran.png"));
+		icoFond = new ImageIcon(getClass().getResource("../../../images/fondEcran.png"));
 		this.imgFond1 = this.icoFond.getImage();
 		this.imgFond2 = this.icoFond.getImage();
 		
-		this.icoChateau1 = new ImageIcon(getClass().getResource("/images/chateau1.png"));
+		this.icoChateau1 = new ImageIcon(getClass().getResource("../../../images/chateau1.png"));
 		this.imgChateau1 = this.icoChateau1.getImage();
-		this.icoDepart = new ImageIcon(getClass().getResource("/images/depart.png"));
+		this.icoDepart = new ImageIcon(getClass().getResource("../../../images/depart.png"));
 		this.imgDepart = this.icoDepart.getImage();
 		
 		mario = new Mario(300, 245);
@@ -184,10 +184,10 @@ public class Scene extends JPanel {
 		tortue8 = new Tortue(4200, 243);
 		tortue9 = new Tortue(4400, 243);
 		
-		this.icoChateauFin = new ImageIcon(getClass().getResource("/images/chateauFin.png")); 
+		this.icoChateauFin = new ImageIcon(getClass().getResource("../../../images/chateauFin.png")); 
 		this.imgChateauFin = this.icoChateauFin.getImage(); 
 		
-		this.icoDrapeau = new ImageIcon(getClass().getResource("/images/drapeau.png")); 
+		this.icoDrapeau = new ImageIcon(getClass().getResource("../../../images/drapeau.png")); 
 		this.imgDrapeau = this.icoDrapeau.getImage(); 
 		
 		tabObjets = new ArrayList<Objet>();	

@@ -31,7 +31,7 @@ public class pageMenu {
 	/**
 	 * Launch the application.
 	 */
-	public static void launchPageMenu(String[] args) {
+	public static void launchPageMenu() {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

@@ -70,10 +70,9 @@ public class mapChoice {
 		
 		JButton btnNewButton_1 = new JButton("1");
 		btnNewButton_1.addActionListener(new ActionListener() {
-			private String[] args;
 
 			public void actionPerformed(ActionEvent arg0) {
-				Main.launchGame(args);
+				Main.startGame();
 			}
 		});
 		btnNewButton_1.setBounds(10, 60, 89, 23);
