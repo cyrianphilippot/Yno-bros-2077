@@ -10,7 +10,7 @@ import java.net.Socket;
  
 public class serverProgram {
  
-   public static void main() throws IOException {
+   public static void main(String[] args) throws IOException {
  
        ServerSocket listener = null;
  

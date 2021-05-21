@@ -8,7 +8,7 @@ import java.util.Date;
  
 public class clientConnexion {
  
-   public static void main() {
+   public static void main(String[] args) {
  
   
        final String serverHost = "localhost";
