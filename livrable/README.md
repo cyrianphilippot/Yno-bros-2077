@@ -20,3 +20,10 @@ Jours 3 :
 Jours 4 : 
 - Monitoring
 - Objets et colisions
+
+Jours 5 : 
+- Fin du jeu
+- Correction problème 
+
+Jours X : 
+- Correction problème 
