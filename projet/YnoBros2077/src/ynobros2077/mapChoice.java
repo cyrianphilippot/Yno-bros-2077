@@ -1,17 +1,19 @@
 package ynobros2077;
-import ynobros2077.game.com.yno.jeu.*;
 
 import ynobros2077.pageMenu;
-import ynobros2077.game.com.yno.jeu.Main;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Desktop;
+
 import javax.swing.JLabel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 
 public class mapChoice {
@@ -68,18 +70,31 @@ public class mapChoice {
 		btnNewButton.setBounds(345, 238, 89, 23);
 		panel.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("1");
+		JButton btnNewButton_1 = new JButton("Jouer");
 		btnNewButton_1.addActionListener(new ActionListener() {
-
 			public void actionPerformed(ActionEvent arg0) {
-				Main.startGame();
-			}
-		});
+				try {
+					Desktop.getDesktop().open(new File("D://projet/b2/Yno-bros-2077/projet/YnoBros2077/src/ynobros2077/game/YnoBros2077.jar"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}});
 		btnNewButton_1.setBounds(10, 60, 89, 23);
 		panel.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("Choose a level");
 		lblNewLabel_1.setBounds(178, 11, 150, 14);
 		panel.add(lblNewLabel_1);
+		
+		JButton btnNewButton_2 = new JButton("Options");
+		btnNewButton_2.addActionListener(new ActionListener() {
+
+			public void actionPerformed(ActionEvent arg0) {
+				options.launchOptions();
+			}
+		});
+		btnNewButton_2.setBounds(345, 213, 89, 23);
+		panel.add(btnNewButton_2);
 	}
 }
