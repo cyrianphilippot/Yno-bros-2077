@@ -83,7 +83,7 @@ public class mapChoice {
 		btnNewButton_1.setBounds(10, 60, 89, 23);
 		panel.add(btnNewButton_1);
 		
-		JLabel lblNewLabel_1 = new JLabel("Choose a level");
+		JLabel lblNewLabel_1 = new JLabel("Choisis un niveau");
 		lblNewLabel_1.setBounds(178, 11, 150, 14);
 		panel.add(lblNewLabel_1);
 		
