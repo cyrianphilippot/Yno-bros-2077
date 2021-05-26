@@ -4,14 +4,15 @@
 
 ### Qu'est-ce que c'est ?
 
-Malory et Cyrian vous propose aujourd'hui un projet mémoire.
-Notre jeu est un jeu entièrement en java.
-Qui aura pour but de reconstituer le premier level culte de mario bross de l'enfance de vos parent, dans ce niveau nous aurons une mission tel que ramasser X pièces avant de terminer le niveau, bien entendu gard au ennemis amovible et temps !
-Pourquoi pas créer d'autres lvl si on est plutot chaud.
-Il y aura bien entendu le menu et l'executable de ce merveilleux jeux
-Nous mettrons aussi en place des éléments tel que l'impossibilité de mettre l'appli en arrière plans car nous on aime le gaming !
+Malory et Cyrian vous proposent aujourd'hui un projet mémoire. 
+Notre jeu est un jeu entièrement en Java. 
 
-> Pour en savoir plus, référer-vous au [doc spécifique](./livrable/starter-livrable-malory-cyrian.pdf)
+Il aura pour but de reconstituer le premier niveau culte de Mario Bross de l'enfance de vos parents, dans ce niveau, nous aurons plusieurs missions, telles que ramasser X pièces avant de terminer le niveau, bien entendu gare aux ennemis amovibles et au temps ! 
+Pourquoi pas créer d'autres niveaux si on est plutot chauds. 
+
+Il y aura bien entendu le menu et l'exécutable de ce merveilleux jeu. Nous mettrons aussi en place des éléments tel que l'impossibilité de mettre l'appli en arrière-plan car nous, on aime le gaming !
+
+> Pour en savoir plus, référez-vous au [doc spécifique](./livrable/starter-livrable-malory-cyrian.pdf)
 
 ### Suivez l'avancement du projet 
 
